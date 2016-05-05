@@ -4,4 +4,5 @@ A project showcasing social networking for learning through virtual classrooms. 
 ## Android Application
 The application is a prototype that retrieves JSON data from online repository and populates news feeds based on the classroom typical to a social network.
 
-![Alt text](http://s32.postimg.org/wuyrb6d39/Screen_Shot_2016_05_05_at_9_35_26_PM.png "News feed")
+![Alt text](http://s32.postimg.org/wuyrb6d39/Screen_Shot_2016_05_05_at_9_35_26_PM.png "News feed")![Alt text](http://s32.postimg.org/nbp2hppl1/Screen_Shot_2016_05_05_at_9_36_25_PM.png "messages")
+
