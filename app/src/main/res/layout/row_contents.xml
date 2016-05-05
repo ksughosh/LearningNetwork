@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/card"
+    android:layout_gravity="center"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    card:cardBackgroundColor="#d4e157"
+    card:cardElevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:appc="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/userIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            appc:civ_border_width="1dp"
+            appc:civ_border_color = "#CFCF"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/userIcon">
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Test"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#3d3b3b"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="12sp"
+                    android:textColor="#7e7c7c"
+                    android:layout_marginLeft="5dp"/>
+
+
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Test"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#000000"
+            android:paddingTop="5dp"
+            android:layout_below="@+id/userIcon"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
