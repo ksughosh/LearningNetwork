@@ -40,8 +40,7 @@ public class ViewList extends RecyclerView.Adapter<ViewList.DataViewHolder> {
     @Override
     public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.row_contents, parent, false);
-        DataViewHolder viewHolder = new DataViewHolder(view);
-        return viewHolder;
+        return new DataViewHolder(view);
     }
 
     /**

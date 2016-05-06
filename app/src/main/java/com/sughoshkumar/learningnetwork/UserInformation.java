@@ -1,20 +1,15 @@
 package com.sughoshkumar.learningnetwork;
 
 import android.graphics.Bitmap;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
+
 
 /**
  * Persistent data class that is used to hold
  * and convert the JSONArray to manageable object.
  * Created by sughoshkumar.
  */
+@SuppressWarnings("unused")
 public class UserInformation implements Serializable{
     private Bitmap mIcon;
     private String mName;
@@ -137,8 +132,20 @@ public class UserInformation implements Serializable{
         return mMessages;
     }
 
-    public boolean hasMessage(){
+    /**
+     * Type checker
+     * @return false for read message and true for unread
+     */
+    public boolean isNewMessage(){
         return type == 1;
+    }
+
+    /**
+     * Check message has come
+     * @return message existing?
+     */
+    public boolean hasMessage(){
+        return !mMessages.isEmpty();
     }
 
     @Override
@@ -146,22 +153,5 @@ public class UserInformation implements Serializable{
         return "mName: " + mName +
                 "\nmDescription:" + mDescription +
                 "\nmPost: " + mPost;
-    }
-
-    public static byte[] pack(ArrayList<UserInformation> informations) throws IOException {
-        try(ByteArrayOutputStream b = new ByteArrayOutputStream()){
-            try(ObjectOutputStream o = new ObjectOutputStream(b)){
-                o.writeObject(informations);
-            }
-            return b.toByteArray();
-        }
-    }
-
-    public static ArrayList<UserInformation> unpack(byte[] bytes) throws IOException, ClassNotFoundException {
-        try(ByteArrayInputStream b = new ByteArrayInputStream(bytes)){
-            try(ObjectInputStream o = new ObjectInputStream(b)){
-                return (ArrayList<UserInformation>) o.readObject();
-            }
-        }
     }
 }

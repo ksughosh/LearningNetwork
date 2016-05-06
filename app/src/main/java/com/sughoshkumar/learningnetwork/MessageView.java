@@ -1,13 +1,8 @@
 package com.sughoshkumar.learningnetwork;
 
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -16,7 +11,11 @@ import java.util.ArrayList;
  * read and unread messages with feedback
  * Created by sughoshkumar.
  */
-public class MessageView extends Fragment {
+public class MessageView extends FragmentFactory {
+
+    public MessageView(){
+        createEmptyFragment(R.layout.message_view);
+    }
 
     /**
      * Upon creating activity
@@ -25,24 +24,34 @@ public class MessageView extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayList<UserInformation> mData = PostsView.getData();
+        populateView(formatData());
+    }
+
+    /**
+     * Format data that has new messages
+     * @return list of users with messages
+     */
+    private ArrayList<UserInformation> formatData(){
+        ArrayList<UserInformation> userList = new ArrayList<>();
+        for (UserInformation u: getData()){
+            if (u.hasMessage())
+                userList.add(u);
+        }
+        return userList;
+    }
+
+    /**
+     * Method to populate the UI using the data obtained
+     *
+     * @param userList list of user information
+     */
+    @Override
+    protected void populateView(ArrayList<UserInformation> userList) {
         RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.messageList);
-        MessageListAdapter listAdapter = new MessageListAdapter(getActivity(), mData);
+        MessageListAdapter listAdapter = new MessageListAdapter(getActivity(), userList);
         recyclerView.setAdapter(listAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
-    /**
-     * On fragment view created
-     * @param inflater view inflater
-     * @param container view group
-     * @param savedInstanceState bundle
-     * @return inflated view
-     */
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.message_view, container, false);
-    }
 
 }

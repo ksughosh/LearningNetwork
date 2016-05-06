@@ -43,8 +43,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.
     @Override
     public MessageData onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.message_content, parent, false);
-        MessageData dataVH = new MessageData(view);
-        return dataVH;
+        return new MessageData(view);
     }
 
     /**
@@ -57,7 +56,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.
         if (holder == null || holder.userName == null || holder.icon == null || holder.message == null)
             throw new NullPointerException();
         UserInformation user = userList.get(position);
-        if (user.hasMessage()) {
+        if (user.isNewMessage()) {
             holder.message.setTypeface(null, Typeface.BOLD);
             holder.icon.setBorderWidth(5);
             holder.icon.animate();

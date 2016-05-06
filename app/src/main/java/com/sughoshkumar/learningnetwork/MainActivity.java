@@ -7,7 +7,6 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -220,6 +219,11 @@ public class MainActivity extends AppCompatActivity {
      * that could be used by the class that inherits this interface.
      */
     interface MainJsonResult {
+        /**
+         * Delegate method that gets updated upon
+         * retrieving the date from the
+         * @param jsonList JSONArray object containing the JSON
+         */
         void onResultReceived(JSONArray jsonList);
     }
 
