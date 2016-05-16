@@ -5,7 +5,7 @@ A project showcasing social networking for learning through virtual classrooms. 
 The application is a prototype that retrieves JSON data from online repository and populates news feeds based on the classroom typical to a social network.
 
 ### Design
-![Alt text](http://s32.postimg.org/upvp6d2h1/Screen_Shot_2016_05_05_at_9_35_26_PM.png "News feed")           ![Alt text](http://s32.postimg.org/myuotln7p/Learning_Net_2.png  "messages")
+<img src="http://s32.postimg.org/upvp6d2h1/Screen_Shot_2016_05_05_at_9_35_26_PM.png" alt="News feed" width = "360" height="640>           <img src="http://s32.postimg.org/myuotln7p/Learning_Net_2.png"  alt ="messages" width = "360" height="640">
 
 The screenshots towards the left shows the news feed interface where the users write posts similar to a social network but in a virtual classroom sense. 
 
